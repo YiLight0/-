@@ -1,3 +1,19 @@
+def getClassify(c):
+    if c == '演唱会':
+        return '/yanchanghui'
+    elif c == '音乐会':
+        return '/yinyuehui'
+    elif c == '话剧歌剧':
+        return '/huajugeju'
+    elif c == '舞蹈芭蕾':
+        return '/wudaobalei'
+    elif c == '曲苑杂坛':
+        return '/wuyuanzatan'
+    elif c == '度假休闲':
+        return '/dujiaxiuxian'
+    else:
+        return ''
+
 def single_get_first(unicode1):
     str1 = unicode1.encode('gbk')
     try:
@@ -62,4 +78,10 @@ def getPinyin(string):
         charLst.append(single_get_first(l))
     return '/'+''.join(charLst)
  
-#print(getPinyin('北京'))
+def deleteAD(name,time,location,length):
+    if name[0] == '有票礼品卡(礼品馈赠典雅之选)':
+        for i in range(length-1):
+            name[i] = name[i+1]
+            time[i] = time[i+1]
+            location[i] = location[i+1]
+    return name,time,location
